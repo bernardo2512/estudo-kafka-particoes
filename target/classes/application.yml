@@ -1,0 +1,28 @@
+server:
+  port: 8600
+  servlet:
+    context-path: /teste
+
+
+queue:
+  teste:
+    request: "queue.teste.sincrono.request"
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    binder:
+      replication-factor: 1
+    reply:
+      timeout: 10000
+    topic:
+      partition-default: 1
+    consumer:
+      group-id: teste-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      bootstrap-servers: localhost:9092
+    producer:
+      bootstrap-servers: localhost:9092
+      client-id: teste-client-id
+
